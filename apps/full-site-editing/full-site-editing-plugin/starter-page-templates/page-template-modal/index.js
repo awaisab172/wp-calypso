@@ -75,6 +75,21 @@ class PageTemplateModal extends Component {
 		// before to start to parser and render them
 		// into their preview spots. It reduces the time considerably.
 		for ( const i in templates ) {
+			if ( ! templates[ i ] ) {
+				continue;
+			}
+
+			const { slug, content } = templates[ i ];
+			if ( ! content ) {
+				this.setState( {
+					blocksByTemplateSlug: {
+						...this.state.blocksByTemplateSlug,
+						[ slug ]: { blocks: [], isParsing: false }
+					}
+				} );
+				continue;
+			}
+
 			setTimeout(
 				( ( { slug, content } ) => {
 					const blocks = content
@@ -87,7 +102,7 @@ class PageTemplateModal extends Component {
 							[ slug ]: { blocks, isParsing: false }
 						}
 					} );
-				} ).bind( null, templates[ i ] ),
+				} ).bind( null, { slug, content } ),
 				PARSING_TEMPLATE_DELAY * i
 			);
 		}
