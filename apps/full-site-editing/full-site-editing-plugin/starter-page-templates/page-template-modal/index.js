@@ -192,11 +192,12 @@ class PageTemplateModal extends Component {
 										templates={ templates }
 										blocksByTemplates={ blocksByTemplateSlug }
 										onTemplateSelect={ this.previewTemplate }
-										useDynamicPreview={ false }
+										useDynamicPreview={ true }
 										siteInformation={ siteInformation }
 										selectedTemplate={ previewedTemplate }
 										handleTemplateConfirmation={ this.handleConfirmation }
 										isLoading={ isLoading }
+										isTemplateParsingBySlug={ isTemplateParsingBySlug }
 									/>
 								</fieldset>
 							</form>
