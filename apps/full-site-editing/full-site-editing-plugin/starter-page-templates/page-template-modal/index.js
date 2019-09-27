@@ -54,9 +54,9 @@ class PageTemplateModal extends Component {
 			// Extract titles for faster lookup.
 			this.state.titlesByTemplateSlug = mapValues( keyBy( props.templates, 'slug' ), 'title' );
 			// Set initially parsing by slug to `false`.
-			this.state.isTemplateParsingBySlug = mapValues(
+			this.state.blocksByTemplateSlug = mapValues(
 				this.state.titlesByTemplateSlug,
-				() => false
+				() => ( { blocks: [], isParsing: true } )
 			);
 		}
 	}
@@ -78,8 +78,11 @@ class PageTemplateModal extends Component {
 				templates,
 				( prev, { slug, content } ) => {
 					prev[ slug ] = content
-						? parseBlocks( replacePlaceholders( content, siteInformation ) )
-						: [];
+						? ( {
+							blocks: parseBlocks( replacePlaceholders( content, siteInformation ) ),
+							isParsing: false,
+						} )
+						: ( { blocks: [], isParsing: false } );
 					return prev;
 				},
 				{}
@@ -150,7 +153,7 @@ class PageTemplateModal extends Component {
 	};
 
 	getBlocksByTemplateSlug( slug ) {
-		return get( this.state.blocksByTemplateSlug, [ slug ], [] );
+		return get( this.state.blocksByTemplateSlug, [ slug, 'blocks' ], [] );
 	}
 
 	getTitleByTemplateSlug( slug ) {
@@ -159,6 +162,7 @@ class PageTemplateModal extends Component {
 
 	render() {
 		const { previewedTemplate, isOpen, isLoading, blocksByTemplateSlug } = this.state;
+
 		/* eslint-disable no-shadow */
 		const { templates } = this.props;
 		/* eslint-enable no-shadow */
