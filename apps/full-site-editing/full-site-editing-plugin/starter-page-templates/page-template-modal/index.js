@@ -39,6 +39,7 @@ class PageTemplateModal extends Component {
 		previewedTemplate: null,
 		blocksByTemplateSlug: {},
 		titlesByTemplateSlug: {},
+		isTemplateParsingBySlug: {},
 		error: null,
 		isOpen: false,
 	};
@@ -52,6 +53,11 @@ class PageTemplateModal extends Component {
 			this.state.previewedTemplate = get( props.templates, [ 0, 'slug' ] );
 			// Extract titles for faster lookup.
 			this.state.titlesByTemplateSlug = mapValues( keyBy( props.templates, 'slug' ), 'title' );
+			// Set initially parsing by slug to `false`.
+			this.state.isTemplateParsingBySlug = mapValues(
+				this.state.titlesByTemplateSlug,
+				() => false
+			);
 		}
 	}
 
@@ -186,10 +192,11 @@ class PageTemplateModal extends Component {
 										templates={ templates }
 										blocksByTemplates={ blocksByTemplateSlug }
 										onTemplateSelect={ this.previewTemplate }
-										useDynamicPreview={ false }
+										useDynamicPreview={ true }
 										siteInformation={ siteInformation }
 										selectedTemplate={ previewedTemplate }
 										handleTemplateConfirmation={ this.handleConfirmation }
+										isLoading={ isLoading }
 									/>
 								</fieldset>
 							</form>
