@@ -24,7 +24,6 @@ import RedirectPaymentBox from './redirect-payment-box';
 import WebPaymentBox from './web-payment-box';
 import {
 	fullCreditsPayment,
-	newCardPayment,
 	newStripeCardPayment,
 	storedCardPayment,
 } from 'lib/store-transactions';
@@ -125,11 +124,7 @@ export class SecurePaymentForm extends Component {
 				if ( this.getInitialCard() ) {
 					newPayment = storedCardPayment( this.getInitialCard() );
 				} else if ( ! get( this.props.transaction, 'payment.newCardDetails', null ) ) {
-					if ( this.shouldUseStripeElements ) {
-						newPayment = newStripeCardPayment();
-					} else {
-						newPayment = newCardPayment();
-					}
+					newPayment = newStripeCardPayment();
 				}
 				break;
 
