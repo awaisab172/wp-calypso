@@ -192,7 +192,7 @@ class PageTemplateModal extends Component {
 										templates={ templates }
 										blocksByTemplates={ blocksByTemplateSlug }
 										onTemplateSelect={ this.previewTemplate }
-										useDynamicPreview={ true }
+										useDynamicPreview={ false }
 										siteInformation={ siteInformation }
 										selectedTemplate={ previewedTemplate }
 										handleTemplateConfirmation={ this.handleConfirmation }
