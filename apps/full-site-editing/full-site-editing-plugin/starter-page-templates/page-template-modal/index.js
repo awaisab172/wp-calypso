@@ -53,13 +53,13 @@ class PageTemplateModal extends Component {
 		if ( hasTemplates ) {
 			// Select the first template automatically.
 			this.state.previewedTemplate = get( props.templates, [ 0, 'slug' ] );
+
+			// Organize templates in an object, by slug key.
+			const templatesBySlug = keyBy( props.templates, 'slug' );
 			// Extract titles for faster lookup.
-			this.state.titlesByTemplateSlug = mapValues( keyBy( props.templates, 'slug' ), 'title' );
+			this.state.titlesByTemplateSlug = mapValues( templatesBySlug, 'title' );
 			// Set initially parsing by slug to `false`.
-			this.state.blocksByTemplateSlug = mapValues(
-				this.state.titlesByTemplateSlug,
-				() => ( { blocks: [], isParsing: true } )
-			);
+			this.state.blocksByTemplateSlug = mapValues( templatesBySlug, ( { content } ) => ( { blocks: [], isParsing: !! content } ) );
 		}
 	}
 
