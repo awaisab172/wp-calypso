@@ -2,7 +2,7 @@
 /**
  * External dependencies
  */
-import { isEmpty, get, keyBy, mapValues, reduce } from 'lodash';
+import { isEmpty, reduce, get, keyBy, mapValues } from 'lodash';
 import classnames from 'classnames';
 import '@wordpress/nux';
 import { __, sprintf } from '@wordpress/i18n';
