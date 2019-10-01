@@ -2,7 +2,7 @@
 /**
  * External dependencies
  */
-import { isEmpty } from 'lodash';
+import { isEmpty, get } from 'lodash';
 import classnames from 'classnames';
 import '@wordpress/nux';
 import { __, sprintf } from '@wordpress/i18n';
@@ -43,12 +43,22 @@ class PageTemplateModal extends Component {
 		previewedTemplate: getFirstTemplateSlug(),
 		error: null,
 		isOpen: hasTemplates(),
+		isParsing: true,
 	};
 
 	componentDidMount() {
 		if ( this.state.isOpen ) {
 			trackView( this.props.segment.id, this.props.vertical.id );
 		}
+
+		this.onTemplatesParseListener = event => {
+			this.setState( { isParsing: get( event, [ 'detail', 'isParsing' ] ) } );
+		};
+		window.addEventListener( 'onTemplatesParse', this.onTemplatesParseListener );
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener( 'onTemplatesParse', this.onTemplatesParseListener );
 	}
 
 	setTemplate = slug => {
@@ -112,7 +122,7 @@ class PageTemplateModal extends Component {
 
 	render() {
 		/* eslint-disable no-shadow */
-		const { previewedTemplate, isOpen, isLoading } = this.state;
+		const { previewedTemplate, isOpen, isLoading, isParsing } = this.state;
 		const { templates } = this.props;
 		/* eslint-enable no-shadow */
 
@@ -124,7 +134,7 @@ class PageTemplateModal extends Component {
 			<Modal
 				title={ __( 'Select Page Template', 'full-site-editing' ) }
 				onRequestClose={ this.closeModal }
-				className="page-template-modal"
+				className={ classnames( 'page-template-modal', { 'is-parsing': isParsing } ) }
 				overlayClassName="page-template-modal-screen-overlay"
 			>
 				<div className="page-template-modal__inner">

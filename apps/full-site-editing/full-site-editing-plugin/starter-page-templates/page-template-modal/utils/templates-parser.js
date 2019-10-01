@@ -46,7 +46,7 @@ setTimeout( () => {
 		return {
 			blocks,
 			count: blocks.length,
-			isParsing: false,
+			isParsing: null,
 			isEmpty: ! content,
 			title,
 		};
