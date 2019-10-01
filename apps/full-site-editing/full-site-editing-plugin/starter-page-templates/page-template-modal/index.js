@@ -2,7 +2,7 @@
 /**
  * External dependencies
  */
-import { isEmpty, get } from 'lodash';
+import { isEmpty } from 'lodash';
 import classnames from 'classnames';
 import '@wordpress/nux';
 import { __, sprintf } from '@wordpress/i18n';
@@ -26,13 +26,11 @@ import {
 	getTitleByTemplateSlug,
 	hasTemplates,
 	getFirstTemplateSlug,
-} from  './utils/templates-parser';
-
-/* eslint-enable import/no-extraneous-dependencies */
+	getTemplates,
+} from './utils/templates-parser';
 
 // Load config passed from backend.
 const {
-	templates = [],
 	vertical,
 	segment,
 	tracksUserData,
@@ -234,7 +232,7 @@ registerPlugin( 'page-templates', {
 		return (
 			<PageTemplatesPlugin
 				shouldPrefetchAssets={ false }
-				templates={ templates }
+				templates={ getTemplates() }
 				vertical={ vertical }
 				segment={ segment }
 			/>
