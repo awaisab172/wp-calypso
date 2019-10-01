@@ -46,7 +46,7 @@ setTimeout( () => {
 		return {
 			blocks,
 			count: blocks.length,
-			isParsing: null,
+			isParsing: false,
 			isEmpty: ! content,
 			title,
 		};
@@ -61,7 +61,7 @@ setTimeout( () => {
 			},
 		} )
 	);
-}, 0 );
+}, 50 );
 
 export const getAllTemplatesBlocks = () => allTemplatesBlockBySlug;
 
