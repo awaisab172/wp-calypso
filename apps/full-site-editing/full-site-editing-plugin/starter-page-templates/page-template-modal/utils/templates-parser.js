@@ -50,8 +50,6 @@ for ( const k in templates ) {
 	}, 0 );
 }
 
-export const getAllTemplatesBlocks = () => allTemplatesBlockBySlug;
-
 export const hasTemplates = () => !! templates.length;
 
 export const getBlocksByTemplateSlug = slug =>
