@@ -9,9 +9,9 @@ import { get } from 'lodash';
 import getSelectedEditor from 'state/selectors/get-selected-editor';
 
 export const isGutenbergOptOutEnabled = ( state, siteId ) => {
-	// Opt in url will not exist if the user is not allowed to switch to either editor.
-	const optInUrlExists = get( state, [ 'gutenbergOptIn', siteId ], false );
-	return optInUrlExists && getSelectedEditor( state, siteId ) !== 'classic';
+	// Opt in url will be falsey if the user is not allowed to switch editors:
+	const optUrlExists = get( state, [ 'gutenbergOptIn', siteId ], false );
+	return optUrlExists && getSelectedEditor( state, siteId ) !== 'classic';
 };
 
 export default isGutenbergOptOutEnabled;
