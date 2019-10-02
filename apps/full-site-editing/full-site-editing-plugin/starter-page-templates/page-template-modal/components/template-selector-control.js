@@ -1,9 +1,14 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /**
  * External dependencies
  */
+<<<<<<< HEAD
 /* eslint-disable import/no-extraneous-dependencies */
 import { isEmpty, isArray, noop, map, get } from 'lodash';
 /* eslint-enable import/no-extraneous-dependencies */
+=======
+import { isEmpty, isArray, noop, map } from 'lodash';
+>>>>>>> 6e2df23... spt: control parsing state in the item component
 import classnames from 'classnames';
 
 /**
@@ -13,14 +18,18 @@ import classnames from 'classnames';
 import { withInstanceId, compose } from '@wordpress/compose';
 import { BaseControl } from '@wordpress/components';
 import { memo } from '@wordpress/element';
+<<<<<<< HEAD
 /* eslint-enable import/no-extraneous-dependencies */
+=======
+/* eslint-enabled import/no-extraneous-dependencies */
+>>>>>>> 6e2df23... spt: control parsing state in the item component
 
 /**
  * Internal dependencies
  */
 import TemplateSelectorItem from './template-selector-item';
 import replacePlaceholders from '../utils/replace-placeholders';
-import { getTemplateBySlug, hasTemplates } from '../utils/templates-parser';
+import { hasTemplates } from '../utils/templates-parser';
 
 export const TemplateSelectorControl = ( {
 	label,
@@ -68,8 +77,6 @@ export const TemplateSelectorControl = ( {
 							useDynamicPreview={ useDynamicPreview }
 							isSelected={ slug === selectedTemplate }
 							handleTemplateConfirmation={ handleTemplateConfirmation }
-							isParsing={ get( blocksByTemplates, [ slug, 'isParsing' ], false ) }
-							template={ getTemplateBySlug( slug ) }
 						/>
 					</li>
 				) ) }
