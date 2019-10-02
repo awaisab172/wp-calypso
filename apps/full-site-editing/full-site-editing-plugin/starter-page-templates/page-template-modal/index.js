@@ -1,8 +1,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import {
+	getBlocksByTemplateSlug,
+	getTitleByTemplateSlug,
+	hasTemplates,
+	getFirstTemplateSlug,
+	getTemplates,
+} from './utils/templates-parser';
+
 /**
  * External dependencies
  */
-import { isEmpty, get } from 'lodash';
+import { isEmpty } from 'lodash';
 import classnames from 'classnames';
 import '@wordpress/nux';
 import { __, sprintf } from '@wordpress/i18n';
@@ -20,14 +28,6 @@ import TemplateSelectorControl from './components/template-selector-control';
 import TemplateSelectorPreview from './components/template-selector-preview';
 import { trackDismiss, trackSelection, trackView, initializeWithIdentity } from './utils/tracking';
 import ensureAssets from './utils/ensure-assets';
-import {
-	getAllTemplatesBlocks,
-	getBlocksByTemplateSlug,
-	getTitleByTemplateSlug,
-	hasTemplates,
-	getFirstTemplateSlug,
-	getTemplates,
-} from './utils/templates-parser';
 
 // Load config passed from backend.
 const {
@@ -43,22 +43,12 @@ class PageTemplateModal extends Component {
 		previewedTemplate: getFirstTemplateSlug(),
 		error: null,
 		isOpen: hasTemplates(),
-		isParsing: true,
 	};
 
 	componentDidMount() {
 		if ( this.state.isOpen ) {
 			trackView( this.props.segment.id, this.props.vertical.id );
 		}
-
-		this.onTemplatesParseListener = event => {
-			this.setState( { isParsing: get( event, [ 'detail', 'isParsing' ] ) } );
-		};
-		window.addEventListener( 'onTemplatesParse', this.onTemplatesParseListener );
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener( 'onTemplatesParse', this.onTemplatesParseListener );
 	}
 
 	setTemplate = slug => {
@@ -122,7 +112,7 @@ class PageTemplateModal extends Component {
 
 	render() {
 		/* eslint-disable no-shadow */
-		const { previewedTemplate, isOpen, isLoading, isParsing } = this.state;
+		const { previewedTemplate, isOpen, isLoading } = this.state;
 		const { templates } = this.props;
 		/* eslint-enable no-shadow */
 
@@ -134,7 +124,7 @@ class PageTemplateModal extends Component {
 			<Modal
 				title={ __( 'Select Page Template', 'full-site-editing' ) }
 				onRequestClose={ this.closeModal }
-				className={ classnames( 'page-template-modal', { 'is-parsing': isParsing } ) }
+				className="page-template-modal"
 				overlayClassName="page-template-modal-screen-overlay"
 			>
 				<div className="page-template-modal__inner">
@@ -153,7 +143,6 @@ class PageTemplateModal extends Component {
 									<TemplateSelectorControl
 										label={ __( 'Template', 'full-site-editing' ) }
 										templates={ templates }
-										blocksByTemplates={ getAllTemplatesBlocks() }
 										onTemplateSelect={ this.previewTemplate }
 										useDynamicPreview={ true }
 										siteInformation={ siteInformation }
