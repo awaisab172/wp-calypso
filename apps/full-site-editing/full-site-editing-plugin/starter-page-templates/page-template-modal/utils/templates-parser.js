@@ -41,7 +41,7 @@ for ( const k in templates ) {
 			allTemplatesBlockBySlug[ slug ] = parsedTemplate;
 		}
 
-		// Dispatch a global event once all templates have been parsed.
+		// Dispatch a global event to indicate a template has been parsed.
 		window.dispatchEvent(
 			new CustomEvent( 'onTemplateParse', {
 				detail: { template: parsedTemplate },
