@@ -2,13 +2,10 @@
 /**
  * External dependencies
  */
-<<<<<<< HEAD
 /* eslint-disable import/no-extraneous-dependencies */
-import { isEmpty, isArray, noop, map, get } from 'lodash';
-/* eslint-enable import/no-extraneous-dependencies */
-=======
 import { isEmpty, isArray, noop, map } from 'lodash';
->>>>>>> 6e2df23... spt: control parsing state in the item component
+/* eslint-enable import/no-extraneous-dependencies */
+
 import classnames from 'classnames';
 
 /**
@@ -18,11 +15,7 @@ import classnames from 'classnames';
 import { withInstanceId, compose } from '@wordpress/compose';
 import { BaseControl } from '@wordpress/components';
 import { memo } from '@wordpress/element';
-<<<<<<< HEAD
-/* eslint-enable import/no-extraneous-dependencies */
-=======
 /* eslint-enabled import/no-extraneous-dependencies */
->>>>>>> 6e2df23... spt: control parsing state in the item component
 
 /**
  * Internal dependencies
