@@ -2,7 +2,7 @@
  * External dependencies
  */
 /* eslint-disable import/no-extraneous-dependencies */
-import { keyBy, mapValues, get } from 'lodash';
+import { get } from 'lodash';
 /* eslint-enable import/no-extraneous-dependencies */
 
 /**
@@ -18,50 +18,37 @@ import { parse as parseBlocks } from '@wordpress/blocks';
 import replacePlaceholders from './replace-placeholders';
 
 const { templates = [], siteInformation = {} } = window.starterPageTemplatesConfig;
+const allTemplatesBlockBySlug = {};
 
-let allTemplatesBlockBySlug = mapValues( keyBy( templates, 'slug' ), ( { content, title } ) => ( {
-	blocks: [],
-	content,
-	count: 0,
-	isEmpty: ! content,
-	isParsing: !! content,
-	title,
-} ) );
+for ( const k in templates ) {
+	const template = templates[ k ];
+	const { content, title, slug } = template;
 
-// Dispatch a global event once all templates have been parsed.
-setTimeout( () => {
-	window.dispatchEvent(
-		new CustomEvent( 'onTemplatesParse', {
-			detail: {
-				templates: allTemplatesBlockBySlug,
-				isParsing: true,
-			},
-		} )
-	);
-}, 0 );
+	let parsedTemplate = {
+		blocks: [],
+		count: 0,
+		isEmpty: ! content,
+		isParsing: !! content,
+		title,
+		slug,
+	};
 
-setTimeout( () => {
-	allTemplatesBlockBySlug = mapValues( allTemplatesBlockBySlug, ( { content, title } ) => {
-		const blocks = content ? parseBlocks( replacePlaceholders( content, siteInformation ) ) : [];
-		return {
-			blocks,
-			count: blocks.length,
-			isParsing: false,
-			isEmpty: ! content,
-			title,
-		};
-	} );
+	allTemplatesBlockBySlug[ slug ] = parsedTemplate;
+	setTimeout( () => {
+		if ( content ) {
+			const blocks = parseBlocks( replacePlaceholders( content, siteInformation ) );
+			parsedTemplate = { ...parsedTemplate, blocks, isParsing: false };
+			allTemplatesBlockBySlug[ slug ] = parsedTemplate;
+		}
 
-	// Dispatch a global event once all templates have been parsed.
-	window.dispatchEvent(
-		new CustomEvent( 'onTemplatesParse', {
-			detail: {
-				templates: allTemplatesBlockBySlug,
-				isParsing: false,
-			},
-		} )
-	);
-}, 50 );
+		// Dispatch a global event once all templates have been parsed.
+		window.dispatchEvent(
+			new CustomEvent( 'onTemplateParse', {
+				detail: { template: parsedTemplate },
+			} )
+		);
+	}, 0 );
+}
 
 export const getAllTemplatesBlocks = () => allTemplatesBlockBySlug;
 
