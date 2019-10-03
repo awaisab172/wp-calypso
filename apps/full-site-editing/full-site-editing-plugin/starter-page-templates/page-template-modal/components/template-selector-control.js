@@ -15,14 +15,14 @@ import classnames from 'classnames';
 import { withInstanceId, compose } from '@wordpress/compose';
 import { BaseControl } from '@wordpress/components';
 import { memo } from '@wordpress/element';
-/* eslint-enabled import/no-extraneous-dependencies */
+/* eslint-enable import/no-extraneous-dependencies */
 
 /**
  * Internal dependencies
  */
 import TemplateSelectorItem from './template-selector-item';
 import replacePlaceholders from '../utils/replace-placeholders';
-import { hasTemplates } from '../utils/templates-parser';
+import { hasTemplates, getTemplateSlugs } from '../utils/templates-parser';
 
 export const TemplateSelectorControl = ( {
 	label,
@@ -57,7 +57,7 @@ export const TemplateSelectorControl = ( {
 				className="template-selector-control__options"
 				data-testid="template-selector-control-options"
 			>
-				{ map( templates, ( { slug, title, preview, previewAlt } ) => (
+				{ map( getTemplateSlugs(), ( { slug, title, preview, previewAlt } ) => (
 					<li key={ `${ id }-${ slug }` } className="template-selector-control__template">
 						<TemplateSelectorItem
 							id={ id }
