@@ -1,0 +1,30 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - '@wordpress/i18n > lodash':
+        patched: '2020-04-30T22:59:52.121Z'
+    - '@wordpress/editor > @wordpress/wordcount > lodash':
+        patched: '2020-04-30T22:59:52.121Z'
+    - '@wordpress/components > react-dates > lodash':
+        patched: '2020-04-30T22:59:52.121Z'
+    - '@wordpress/editor > @wordpress/nux > @wordpress/components > lodash':
+        patched: '2020-04-30T22:59:52.121Z'
+    - '@wordpress/editor > @wordpress/components > react-dates > lodash':
+        patched: '2020-04-30T22:59:52.121Z'
+    - '@wordpress/editor > @wordpress/nux > @wordpress/components > @wordpress/rich-text > lodash':
+        patched: '2020-04-30T22:59:52.121Z'
+    - '@wordpress/editor > @wordpress/nux > @wordpress/components > react-dates > lodash':
+        patched: '2020-04-30T22:59:52.121Z'
+    - '@wordpress/editor > @wordpress/nux > @wordpress/components > @wordpress/rich-text > @wordpress/keycodes > lodash':
+        patched: '2020-04-30T22:59:52.121Z'
+    - '@wordpress/editor > @wordpress/nux > @wordpress/components > @wordpress/rich-text > @wordpress/keycodes > @wordpress/i18n > lodash':
+        patched: '2020-04-30T22:59:52.121Z'
+    - '@wordpress/editor > @wordpress/nux > @wordpress/components > @wordpress/rich-text > @wordpress/data > @wordpress/compose > @wordpress/element > lodash':
+        patched: '2020-04-30T22:59:52.121Z'
+    - '@wordpress/editor > @wordpress/nux > @wordpress/components > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-04-30T22:59:52.121Z'
+    - '@wordpress/editor > @wordpress/nux > @wordpress/components > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-04-30T22:59:52.121Z'
