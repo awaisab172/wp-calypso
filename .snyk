@@ -1,0 +1,86 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - '@wordpress/viewport > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - html-webpack-plugin > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - redux-form > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - webpack-bundle-analyzer > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/editor > @wordpress/notices > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/components > react-dates > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - postcss-cli > postcss-reporter > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/server-side-render > @wordpress/components > react-dates > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - lerna > @lerna/run > @lerna/command > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/server-side-render > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/editor > @wordpress/nux > @wordpress/components > react-dates > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - lerna > @lerna/publish > @lerna/version > @lerna/command > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - lerna > @lerna/version > @lerna/conventional-commits > conventional-changelog-core > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - lerna > @lerna/publish > @lerna/prompt > inquirer > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/block-directory > @wordpress/plugins > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/components > react-dates > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - lerna > @lerna/version > @lerna/conventional-commits > conventional-changelog-core > conventional-changelog-writer > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - lerna > @lerna/version > @lerna/conventional-commits > conventional-changelog-core > conventional-commits-parser > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - lerna > @lerna/version > @lerna/conventional-commits > conventional-recommended-bump > conventional-commits-parser > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - lerna > @lerna/publish > @lerna/version > @lerna/conventional-commits > conventional-changelog-core > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - lerna > @lerna/publish > @lerna/otplease > @lerna/prompt > inquirer > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/block-directory > @wordpress/block-editor > @wordpress/keyboard-shortcuts > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/server-side-render > @wordpress/components > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/server-side-render > @wordpress/components > react-dates > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - lerna > @lerna/publish > @lerna/version > @lerna/conventional-commits > conventional-changelog-core > conventional-changelog-writer > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - lerna > @lerna/publish > @lerna/version > @lerna/conventional-commits > conventional-changelog-core > conventional-commits-parser > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - lerna > @lerna/publish > @lerna/version > @lerna/conventional-commits > conventional-recommended-bump > conventional-commits-parser > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - lerna > @lerna/publish > @lerna/npm-publish > @lerna/otplease > @lerna/prompt > inquirer > lodash:
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/block-directory > @wordpress/block-editor > @wordpress/components > @wordpress/rich-text > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/editor > @wordpress/nux > @wordpress/components > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/block-directory > @wordpress/block-editor > @wordpress/components > react-dates > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/block-directory > @wordpress/block-editor > @wordpress/components > @wordpress/rich-text > @wordpress/keycodes > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/components > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/block-directory > @wordpress/block-editor > @wordpress/components > @wordpress/rich-text > @wordpress/data > @wordpress/redux-routine > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/server-side-render > @wordpress/components > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/block-directory > @wordpress/block-editor > @wordpress/components > @wordpress/rich-text > @wordpress/data > @wordpress/compose > @wordpress/element > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/block-directory > @wordpress/block-editor > @wordpress/components > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - '@wordpress/edit-post > @wordpress/block-library > @wordpress/editor > @wordpress/block-directory > @wordpress/block-editor > @wordpress/components > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T06:12:32.758Z'
+    - lodash:
+        patched: '2020-05-01T06:12:32.758Z'
