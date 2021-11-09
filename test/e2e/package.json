@@ -63,7 +63,7 @@
 		"testarmada-magellan-mocha-plugin": "github:Automattic/magellan-mocha-plugin#660cf2c",
 		"xml2json-command": "^0.0.3",
 		"xmpp.js": "^0.3.0",
-		"xunit-viewer": "^5.1.8"
+		"xunit-viewer": "^5.1.11"
 	},
 	"devDependencies": {
 		"babel-eslint": "10.0.1",
