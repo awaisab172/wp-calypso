@@ -27,7 +27,7 @@
 		"cached-path-relative": ">=1.0.2",
 		"chromedriver": "^76.0.0",
 		"concurrently": "^3.6.1",
-		"config": "1.28.0",
+		"config": "3.3.1",
 		"cryptiles": ">=4.1.2",
 		"esformatter-braces": "^1.2.1",
 		"esformatter-collapse-objects-a8c": "^0.1.0",
