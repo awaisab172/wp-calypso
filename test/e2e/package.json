@@ -42,7 +42,7 @@
 		"grunt-cli": "^1.2.0",
 		"grunt-concurrent": "^2.3.0",
 		"grunt-shell": "^1.1.2",
-		"junit-viewer": "4.9.6",
+		"junit-viewer": "4.11.1",
 		"lodash": "^4.13.1",
 		"mailosaur": "4.0.0",
 		"mocha": "^5.2.0",
@@ -63,7 +63,7 @@
 		"testarmada-magellan-mocha-plugin": "github:Automattic/magellan-mocha-plugin#660cf2c",
 		"xml2json-command": "^0.0.3",
 		"xmpp.js": "^0.3.0",
-		"xunit-viewer": "^5.1.8"
+		"xunit-viewer": "^6.0.0"
 	},
 	"devDependencies": {
 		"babel-eslint": "10.0.1",
