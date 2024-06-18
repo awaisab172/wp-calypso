@@ -62,8 +62,8 @@
 		"testarmada-magellan-local-executor": "^2.0.0",
 		"testarmada-magellan-mocha-plugin": "github:Automattic/magellan-mocha-plugin#660cf2c",
 		"xml2json-command": "^0.0.3",
-		"xmpp.js": "^0.3.0",
-		"xunit-viewer": "^5.1.8"
+		"xmpp.js": "^0.5.0",
+		"xunit-viewer": "^7.1.1"
 	},
 	"devDependencies": {
 		"babel-eslint": "10.0.1",
