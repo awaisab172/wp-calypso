@@ -179,7 +179,7 @@
 		"resize-observer-polyfill": "1.5.1",
 		"rtlcss": "2.4.0",
 		"social-logos": "2.1.0",
-		"socket.io-client": "2.2.0",
+		"socket.io-client": "4.8.0",
 		"source-map": "0.7.3",
 		"source-map-support": "0.5.12",
 		"store": "2.0.12",
