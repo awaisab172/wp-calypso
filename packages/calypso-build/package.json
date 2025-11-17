@@ -61,7 +61,7 @@
 		"mini-css-extract-plugin-with-rtl": "github:Automattic/mini-css-extract-plugin-with-rtl#v0.7.0-with-rtl",
 		"node-sass": "4.11.0",
 		"postcss-custom-properties": "8.0.9",
-		"postcss-loader": "3.0.0",
+		"postcss-loader": "4.0.0",
 		"recursive-copy": "2.0.10",
 		"sass-loader": "7.1.0",
 		"terser-webpack-plugin": "1.2.3",
